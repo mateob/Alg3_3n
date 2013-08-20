@@ -1,18 +1,27 @@
 package com.jguno.principal;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.jguno.classes.Baralho;
-import com.jguno.classes.baralhoint;
-import com.jguno.jogadores.jogadoresint;
 import com.jguno.jogadores.jogaUm;
 import com.jguno.jogadores.jogaDois;
 import com.jguno.jogadores.jogaTres;
 import com.jguno.jogadores.jogaQuatro;
-import com.jguno.nodo.nodoUm;
 
 public class Construtor {
+	@SuppressWarnings("rawtypes")
+	private Baralho baralho = new Baralho();
+	@SuppressWarnings("rawtypes")
+	private jogaUm jogUm = new jogaUm();
+	@SuppressWarnings("rawtypes")
+	private jogaDois jogDois = new jogaDois();
+	@SuppressWarnings("rawtypes")
+	private jogaTres jogTres = new jogaTres();
+	@SuppressWarnings("rawtypes")
+	private jogaQuatro jogQua = new jogaQuatro();
 	
+	/*
 	public <T> baralhoint<T> criarBaralho(){
 		baralhoint<T> baralho = null;
 		baralho = new Baralho<T>();
@@ -42,15 +51,17 @@ public class Construtor {
 		jogQua = new jogaQuatro<T>();
 		return jogQua;
 	}
+	*/
 	
-	public void criarCartas(){
-		//nodoUm<T> carta = null;
-		int reng, cor, numero;
+	@SuppressWarnings("unchecked")
+	public <T> void criarCartas(){
+		ArrayList<T> carta = new ArrayList<T>();
 		String tmcor = null;
-		int tmnumero = 0;
 		
-		for(reng = 0; reng == 2; reng++){
-			for(cor = 0; cor == 3; cor++){
+		for(int reng = 0; reng <= 1; reng++){
+			//monta o rang dos baralhos, sendo 2 repetições.
+			for(int cor = 0; cor <= 3; cor++){
+				// monta a secuencia de cor para cada baralho
 				if(cor == 0){
 					tmcor = "Amarelo";
 				}else if(cor == 1){
@@ -60,14 +71,62 @@ public class Construtor {
 				}else if(cor == 3){
 					tmcor = "Azul";
 				}
-				for(numero = 0; numero == 8; numero++){
+				for(int numero = 0; numero <= 8; numero++){
+					//monta as cartas do baralho por numeração, sendo 9 cartas por cada cor tendo duas secuencias "dois baralhos"
 					int card = numero + 1;
-					tmnumero = card;
-					System.out.println(tmnumero);
+					//Armasena as cartas que contem (numero e cor) como uma string num ArrayList
+					carta.add((T)(card+"%"+tmcor));
 				}
 			}
 		}
-		System.out.println("teste carta: "+tmcor+tmnumero);
-		System.out.println("teste 2 não funciono");
+		//miscura as cartas para serem colocadas no baralho
+		Collections.shuffle(carta);
+		for(int e = 0; e<=71; e++){
+			System.out.println(carta.get(e));
+			baralho.insercao(carta.get(e));
+		}
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void reparteCartas(){
+		jogUm.addIni(baralho.obter());
+		System.out.println("tes 1 "+baralho.obter());
+		baralho.remocao();
+		jogDois.addIni(baralho.obter());
+		System.out.println("tes 2 "+baralho.obter());
+		baralho.remocao();
+		jogTres.addIni(baralho.obter());
+		System.out.println("tes 3 "+baralho.obter());
+		baralho.remocao();
+		jogQua.addIni(baralho.obter());
+		System.out.println("tes 4 "+baralho.obter());
+		baralho.remocao();
+		
+		System.out.println(jogUm.obterPrimeiro());
+		
+		for(int i = 1; i<=6; i++){
+			jogUm.addPos(i, baralho.obter());
+			baralho.remocao();
+			jogDois.addPos(i, baralho.obter());
+			baralho.remocao();
+			jogTres.addPos(i, baralho.obter());
+			baralho.remocao();
+			jogQua.addPos(i, baralho.obter());
+		}
+		
+		for(int e = 0; e <= 3; e++){
+			for(int y = 0; y <=6; y++){
+				if(e == 0){
+					System.out.println("Carta jogador 1, carata: "+y+" | "+jogUm.obterPosicao(y));
+				}else if(e ==1){
+					System.out.println("Carta jogador 2, carata: "+y+" | "+jogDois.obterPosicao(y));
+				}else if(e==2){
+					System.out.println("Carta jogador 3, carata: "+y+" | "+jogTres.obterPosicao(y));
+				}else if(e ==3){
+					System.out.println("Carta jogador 4, carata: "+y+" | "+jogQua.obterPosicao(y));
+				}
+			}
+		}
 	}
 }
