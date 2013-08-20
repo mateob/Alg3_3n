@@ -24,8 +24,6 @@ public class Construtor {
 	@SuppressWarnings("rawtypes")
 	private mesa jmesa = new mesa();
 	
-	private int testeJogaUm, testeJogaDois, testeJogaTres, testeJogaQua, testePopBaralho, testePopMesa;
-	
 	/*public <T> baralhoint<T> criarBaralho(){
 		baralhoint<T> baralho = null;
 		baralho = new Baralho<T>();
