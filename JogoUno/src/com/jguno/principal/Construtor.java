@@ -91,19 +91,13 @@ public class Construtor {
 	@SuppressWarnings("unchecked")
 	public void reparteCartas(){
 		jogUm.addIni(baralho.obter());
-		System.out.println("tes 1 "+baralho.obter());
 		baralho.remocao();
 		jogDois.addIni(baralho.obter());
-		System.out.println("tes 2 "+baralho.obter());
 		baralho.remocao();
 		jogTres.addIni(baralho.obter());
-		System.out.println("tes 3 "+baralho.obter());
 		baralho.remocao();
 		jogQua.addIni(baralho.obter());
-		System.out.println("tes 4 "+baralho.obter());
 		baralho.remocao();
-		
-		System.out.println(jogUm.obterPrimeiro());
 		
 		for(int i = 1; i<=4; i++){
 			jogUm.addPos(i, baralho.obter());
@@ -116,20 +110,6 @@ public class Construtor {
 			baralho.remocao();
 		}
 		
-		for(int e = 0; e <= 3; e++){
-			for(int y = 0; y <=4; y++){
-				if(e == 0){
-					System.out.println("Carta jogador 1, carata: "+y+" | "+jogUm.obterPosicao(y));
-				}else if(e ==1){
-					System.out.println("Carta jogador 2, carata: "+y+" | "+jogDois.obterPosicao(y));
-				}else if(e==2){
-					System.out.println("Carta jogador 3, carata: "+y+" | "+jogTres.obterPosicao(y));
-				}else if(e ==3){
-					System.out.println("Carta jogador 4, carata: "+y+" | "+jogQua.obterPosicao(y));
-				}
-			}
-		}
-		
 		jmesa.insercao(baralho.obter());
 		baralho.remocao();
 	}
@@ -138,12 +118,6 @@ public class Construtor {
 		Boolean resultadoteste = false;
 		int testes = 0;
 		
-		System.out.println(baralho.tamanho());
-		System.out.println("Joga Um "+jogUm.obterTamanho());
-		System.out.println("Joga Dois "+jogDois.obterTamanho());
-		System.out.println("Joga Tres "+jogTres.obterTamanho());
-		System.out.println("Joga Quatro "+jogQua.obterTamanho());
-		System.out.println("Mesa "+jmesa.tamanho());
 		if(jogUm.obterTamanho() != 5){
 			System.out.println("Erro: Jogador Um não tem cartas!");
 		}else{
