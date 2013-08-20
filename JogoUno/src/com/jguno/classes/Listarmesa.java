@@ -1,11 +1,11 @@
 package com.jguno.classes;
 
 import com.jguno.jogadores.jogadoresint;
-import com.jguno.nodo.nodoUm;
+import com.jguno.nodo.nodoMesa;
 
 public class Listarmesa<T> implements jogadoresint<T>{
 
-	private nodoUm<T> inicio = new nodoUm<T>();
+	private nodoMesa<T> inicio = new nodoMesa<T>();
 	
 	@Override
 	public void addFin(T valor) {
@@ -19,8 +19,8 @@ public class Listarmesa<T> implements jogadoresint<T>{
 
 	@Override
 	public void addPos(int posicao, T valor) {
-		nodoUm<T> nodo = null;
-		nodoUm<T> nodoNovo = new nodoUm<T>();
+		nodoMesa<T> nodo = null;
+		nodoMesa<T> nodoNovo = new nodoMesa<T>();
 		if(valor == null){
 			throw new IllegalArgumentException();
 		}
@@ -38,7 +38,7 @@ public class Listarmesa<T> implements jogadoresint<T>{
 
 	@Override
 	public T obterPrimeiro() {
-		nodoUm<T> nodo = null;
+		nodoMesa<T> nodo = null;
 		if(obterNodoPosicao(0) == null){
 			throw new IllegalArgumentException();
 		}
@@ -55,7 +55,7 @@ public class Listarmesa<T> implements jogadoresint<T>{
 
 	@Override
 	public T obterPosicao(int posicao) {
-		nodoUm<T> nodo = null;
+		nodoMesa<T> nodo = null;
 		if(posicao < 0 ){
 			throw new IllegalArgumentException();
 		}
@@ -69,7 +69,7 @@ public class Listarmesa<T> implements jogadoresint<T>{
 	@Override
 	public int obterTamanho() {
 		int resultado = 0;
-		nodoUm<T> nodo = null;
+		nodoMesa<T> nodo = null;
 		nodo = inicio;
 		while(nodo.proximo != null){
 			nodo = nodo.proximo;
@@ -81,8 +81,8 @@ public class Listarmesa<T> implements jogadoresint<T>{
 
 	@Override
 	public T removerPosicao(int posicao) {
-		nodoUm<T> nodo = null;
-		nodoUm<T> nodoAnterior = null;
+		nodoMesa<T> nodo = null;
+		nodoMesa<T> nodoAnterior = null;
 		if(posicao < 0 ){
 			throw new IllegalArgumentException();
 		}
@@ -102,8 +102,8 @@ public class Listarmesa<T> implements jogadoresint<T>{
 		this.inicio.proximo = null;
 	}
 	
-	private nodoUm<T> obterNodoPosicao(int posicao){
-		nodoUm<T> nodo = inicio;
+	private nodoMesa<T> obterNodoPosicao(int posicao){
+		nodoMesa<T> nodo = inicio;
 		int indice = -1;
 		while(posicao != indice){
 			nodo = nodo.proximo;

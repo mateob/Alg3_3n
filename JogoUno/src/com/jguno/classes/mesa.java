@@ -2,7 +2,7 @@ package com.jguno.classes;
 
 public class mesa<T> implements baralhoint<T> {
 
-	private Listacarta<T> lista = new Listacarta<T>();
+	private Listarmesa<T> lista = new Listarmesa<T>();
 	
 	@Override
 	public void insercao(T valor) {

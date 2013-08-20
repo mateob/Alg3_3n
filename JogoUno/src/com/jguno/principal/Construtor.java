@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.jguno.classes.Baralho;
+import com.jguno.classes.mesa;
 import com.jguno.jogadores.jogaUm;
 import com.jguno.jogadores.jogaDois;
 import com.jguno.jogadores.jogaTres;
@@ -20,9 +21,12 @@ public class Construtor {
 	private jogaTres jogTres = new jogaTres();
 	@SuppressWarnings("rawtypes")
 	private jogaQuatro jogQua = new jogaQuatro();
+	@SuppressWarnings("rawtypes")
+	private mesa jmesa = new mesa();
 	
-	/*
-	public <T> baralhoint<T> criarBaralho(){
+	private int testeJogaUm, testeJogaDois, testeJogaTres, testeJogaQua, testePopBaralho, testePopMesa;
+	
+	/*public <T> baralhoint<T> criarBaralho(){
 		baralhoint<T> baralho = null;
 		baralho = new Baralho<T>();
 		return baralho;
@@ -82,10 +86,8 @@ public class Construtor {
 		//miscura as cartas para serem colocadas no baralho
 		Collections.shuffle(carta);
 		for(int e = 0; e<=71; e++){
-			System.out.println(carta.get(e));
 			baralho.insercao(carta.get(e));
-		}
-		
+		}		
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -105,7 +107,7 @@ public class Construtor {
 		
 		System.out.println(jogUm.obterPrimeiro());
 		
-		for(int i = 1; i<=6; i++){
+		for(int i = 1; i<=4; i++){
 			jogUm.addPos(i, baralho.obter());
 			baralho.remocao();
 			jogDois.addPos(i, baralho.obter());
@@ -113,10 +115,11 @@ public class Construtor {
 			jogTres.addPos(i, baralho.obter());
 			baralho.remocao();
 			jogQua.addPos(i, baralho.obter());
+			baralho.remocao();
 		}
 		
 		for(int e = 0; e <= 3; e++){
-			for(int y = 0; y <=6; y++){
+			for(int y = 0; y <=4; y++){
 				if(e == 0){
 					System.out.println("Carta jogador 1, carata: "+y+" | "+jogUm.obterPosicao(y));
 				}else if(e ==1){
@@ -128,5 +131,57 @@ public class Construtor {
 				}
 			}
 		}
+		
+		jmesa.insercao(baralho.obter());
+		baralho.remocao();
+	}
+	
+	public Boolean testeMesa(){
+		Boolean resultadoteste = false;
+		int testes = 0;
+		
+		System.out.println(baralho.tamanho());
+		System.out.println("Joga Um "+jogUm.obterTamanho());
+		System.out.println("Joga Dois "+jogDois.obterTamanho());
+		System.out.println("Joga Tres "+jogTres.obterTamanho());
+		System.out.println("Joga Quatro "+jogQua.obterTamanho());
+		System.out.println("Mesa "+jmesa.tamanho());
+		if(jogUm.obterTamanho() != 5){
+			System.out.println("Erro: Jogador Um não tem cartas!");
+		}else{
+			testes = 1;
+		}
+		if(jogDois.obterTamanho() != 5){
+			System.out.println("Erro: Jogador Dois não tem cartas!");
+		}else{
+			testes = testes + 1;
+		}
+		if(jogTres.obterTamanho() != 5){
+			System.out.println("Erro: Jogador Três não tem cartas!");
+		}else{
+			testes = testes +1;
+		}
+		if(jogQua.obterTamanho() != 5){
+			System.out.println("Erro: Jogador Quatro não tem cartas!");
+		}else{
+			testes = testes +1;
+		}
+		if(baralho.tamanho() != 51){
+			System.out.println("Erro: O Baralho não tem cartas!");
+		}else{
+			testes = testes +1;
+		}
+		if(jmesa.tamanho() != 1){
+			System.out.println("Erro: A mesa não resebeu a primeira cartas!");
+		}else{
+			testes = testes + 1;
+		}
+		
+		if(testes == 6){
+			resultadoteste = true;
+		}else{
+			resultadoteste = false;
+		}
+		return resultadoteste;
 	}
 }

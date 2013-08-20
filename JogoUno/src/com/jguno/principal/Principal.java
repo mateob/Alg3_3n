@@ -6,8 +6,11 @@ public class Principal {
 	
 	public static void main(String[] args) {
 		tst.criarCartas();
-		System.out.println("teste 1 ok");
 		tst.reparteCartas();
-		System.out.println("teste 2 ok");
+		if(tst.testeMesa()==true){
+			System.out.println("Ok");
+		}else{
+			System.out.println("Erro!!");
+		}
 	}
 }
