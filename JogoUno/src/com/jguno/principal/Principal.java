@@ -1,11 +1,11 @@
 package com.jguno.principal;
 
-import com.jguno.jogo.Jogada;
+import com.jguno.jogo.menuJogo;
 
 public class Principal {
 
 	private static Construtor tst = new Construtor();
-	private static Jogada jogo = new Jogada();
+	private static menuJogo jogo = new menuJogo();
 	
 	public static void main(String[] args) {
 		tst.criarCartas();

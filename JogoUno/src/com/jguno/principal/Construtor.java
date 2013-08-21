@@ -24,37 +24,6 @@ public class Construtor {
 	@SuppressWarnings("rawtypes")
 	private mesa jmesa = new mesa();
 	
-	/*public <T> baralhoint<T> criarBaralho(){
-		baralhoint<T> baralho = null;
-		baralho = new Baralho<T>();
-		return baralho;
-	}
-	
-	public <T> jogadoresint<T> criarMaoJUm(){
-		jogadoresint<T> jogUm = null;
-		jogUm = new jogaUm<T>();
-		return jogUm;
-	}
-	
-	public <T> jogadoresint<T> criarMaoJDois(){
-		jogadoresint<T> jogDois = null;
-		jogDois = new jogaDois<T>();
-		return jogDois;
-	}
-	
-	public <T> jogadoresint<T> criarMaoJTres(){
-		jogadoresint<T> jogTres = null;
-		jogTres = new jogaTres<T>();
-		return jogTres;
-	}
-	
-	public <T> jogadoresint<T> criarMaoJQuatro(){
-		jogadoresint<T> jogQua = null;
-		jogQua = new jogaQuatro<T>();
-		return jogQua;
-	}
-	*/
-	
 	@SuppressWarnings("unchecked")
 	public <T> void criarCartas(){
 		ArrayList<T> carta = new ArrayList<T>();
