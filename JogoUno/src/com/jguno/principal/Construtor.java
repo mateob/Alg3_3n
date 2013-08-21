@@ -22,7 +22,7 @@ public class Construtor {
 	@SuppressWarnings("rawtypes")
 	private jogaQuatro jogQua = new jogaQuatro();
 	@SuppressWarnings("rawtypes")
-	private mesa jmesa = new mesa();
+	public mesa jmesa = new mesa();
 	
 	@SuppressWarnings("unchecked")
 	public <T> void criarCartas(){
