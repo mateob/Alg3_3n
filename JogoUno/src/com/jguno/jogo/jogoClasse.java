@@ -2,16 +2,12 @@ package com.jguno.jogo;
 
 import java.util.Random;
 
-import com.jguno.classes.mesa;
-
 public class jogoClasse {
 
 	private String separador = "+-----------------------------------------------+";
 	private int jogaP = 0;
-	@SuppressWarnings("rawtypes")
-	public mesa cartaMesa = new mesa();
 	
-	public <T> void jogoSomentePC(int jogaPrimeiro){
+	public void jogoSomentePC(int jogaPrimeiro){
 		jogaP = jogaPrimeiro;
 		boolean repete = false;
 		int var = jogaP;
