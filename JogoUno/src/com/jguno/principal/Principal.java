@@ -9,7 +9,6 @@ public class Principal {
 		tst.criarCartas();
 		tst.reparteCartas();
 		if(tst.testeMesa()==true){
-			//tst.testeIgual();
 			tst.iniciarJogo();
 		}else{
 			System.out.println("Erro!!");
