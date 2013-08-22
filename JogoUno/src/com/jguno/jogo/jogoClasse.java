@@ -2,59 +2,15 @@ package com.jguno.jogo;
 
 import java.util.Random;
 
-public class jogoClasse {
-
-	private String separador = "+-----------------------------------------------+";
-	private int jogaP = 0;
+public class jogoClasse{
 	
-	public void jogoSomentePC(int jogaPrimeiro){
-		jogaP = jogaPrimeiro;
-		boolean repete = false;
-		int var = jogaP;
-		while(repete != true){
-			for(int i = var; i <=3;i++){
-				if(i == 0){
-					System.out.println("Jogador Um: ");
-					try {
-						Thread.sleep(2*1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}else if(i == 1){
-					System.out.println("Jogador Dois: ");
-					try {
-						Thread.sleep(2*1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}else if(i == 2){
-					System.out.println("Jogador Três: ");
-					try {
-						Thread.sleep(2*1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}else if(i == 3){
-					System.out.println("Jogador Quatro: ");
-					try {
-						Thread.sleep(2*1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}else{
-					System.out.println("Erro no processamento do jogo!");
-					repete = true;
-				}
-			}
-			var = 0;
-		}
-	}
+	private String separador = "+-----------------------------------------------+";
 	
 	public void jogoComJogador(){
 		
 	}
 	
-	public void jogoQuemComeca(){
+	public int jogoQuemComeca(){
 		Random rod = new Random();
 		int numeroJoga = rod.nextInt(3);
 		if(numeroJoga == 0){
@@ -88,6 +44,6 @@ public class jogoClasse {
 		}else{
 			System.out.println("Erro na hordem de jogadores");
 		}
-		jogoSomentePC(numeroJoga);
+		return numeroJoga;
 	}
 }

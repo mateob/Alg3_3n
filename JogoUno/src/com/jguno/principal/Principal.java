@@ -1,17 +1,16 @@
 package com.jguno.principal;
 
-import com.jguno.jogo.menuJogo;
-
 public class Principal {
 
+	@SuppressWarnings("rawtypes")
 	private static Construtor tst = new Construtor();
-	private static menuJogo jogo = new menuJogo();
 	
 	public static void main(String[] args) {
 		tst.criarCartas();
-		tst.reparteCartas();		
+		tst.reparteCartas();
 		if(tst.testeMesa()==true){
-			jogo.menuJogador();
+			//tst.testeIgual();
+			tst.iniciarJogo();
 		}else{
 			System.out.println("Erro!!");
 		}
