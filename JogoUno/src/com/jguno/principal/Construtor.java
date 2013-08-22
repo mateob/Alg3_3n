@@ -148,7 +148,7 @@ public class Construtor<T> {
 					if(i==0){
 						System.out.println("jogador Um :");
 						try {
-							Thread.sleep(2*1000);
+							Thread.sleep(3*1000);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
@@ -157,7 +157,7 @@ public class Construtor<T> {
 					}else if(i==1){
 						System.out.println("jogador Dois :");
 						try {
-							Thread.sleep(2*1000);
+							Thread.sleep(3*1000);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
@@ -166,7 +166,7 @@ public class Construtor<T> {
 					}else if(i==2){
 						System.out.println("jogador Três :");
 						try {
-							Thread.sleep(2*1000);
+							Thread.sleep(3*1000);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
@@ -175,7 +175,7 @@ public class Construtor<T> {
 					}else if(i==3){
 						System.out.println("jogador Quatro :");
 						try {
-							Thread.sleep(2*1000);
+							Thread.sleep(3*1000);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
@@ -206,7 +206,10 @@ public class Construtor<T> {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void lerMaoJogador(int jogador){
+		int var = 0;
+		boolean retorno = false;
 		System.out.println("Jog Um: "+jogUm.obterTamanho()+" Jog Dois: "+jogDois.obterTamanho()+" Jog Tres: "+jogTres.obterTamanho()+" Carta mesa: "+jmesa.obter());
 		if(jogador == 0){
 			for(int i = 0; i <= jogUm.obterTamanho()-1; i++){
@@ -214,9 +217,20 @@ public class Construtor<T> {
 					System.out.println("Jogador Um......................................OK");	
 					System.out.println(jmesa.obter());
 					System.out.println(jogUm.obterPosicao(i));
+					var = i;
+					retorno = true;
 				}else{
 					System.out.println("Nenhuma carta jogador Um: "+jogUm.obterPosicao(i));
 				}
+			}
+			if(retorno == true){
+				System.out.println("Tem a carta e lansa uma");
+				jmesa.insercao((T)jogUm.obterPosicao(var));
+				jogUm.removerPosicao(var);
+			}else{
+				System.out.println("Não tem a carta e pega mais uma, total: "+jogUm.obterTamanho());
+				jogUm.addFin(baralho.obter());
+				baralho.remocao();
 			}
 		}else if(jogador == 1){
 			for(int i = 0; i <= jogDois.obterTamanho()-1; i++){
@@ -224,9 +238,20 @@ public class Construtor<T> {
 					System.out.println("Jogador Dois......................................OK");
 					System.out.println(jmesa.obter());
 					System.out.println(jogDois.obterPosicao(i));
+					var = i;
+					retorno = true;
 				}else{
 					System.out.println("Nenhuma carta jogador Dois: "+jogDois.obterPosicao(i));
 				}
+			}
+			if(retorno == true){
+				System.out.println("Tem a carta e lansa uma");
+				jmesa.insercao((T)jogDois.obterPosicao(var));
+				jogDois.removerPosicao(var);
+			}else{
+				System.out.println("Não tem a carta e pega mais uma, total: "+jogDois.obterTamanho());
+				jogDois.addFin(baralho.obter());
+				baralho.remocao();
 			}
 		}else if(jogador == 2){
 			for(int i = 0; i <= jogTres.obterTamanho()-1; i++){
@@ -234,9 +259,20 @@ public class Construtor<T> {
 					System.out.println("Jogador Tres......................................OK");	
 					System.out.println(jmesa.obter());
 					System.out.println(jogTres.obterPosicao(i));
+					var = i;
+					retorno = true;
 				}else{
 					System.out.println("Nenhuma carta jogador tres: "+jogTres.obterPosicao(i));
 				}
+			}
+			if(retorno == true){
+				System.out.println("Tem a carta e lansa uma");
+				jmesa.insercao((T)jogTres.obterPosicao(var));
+				jogTres.removerPosicao(var);
+			}else{
+				System.out.println("Não tem a carta e pega mais uma, total: "+jogTres.obterTamanho());
+				jogTres.addFin(baralho.obter());
+				baralho.remocao();
 			}
 		}else if(jogador ==3){
 			for(int i = 0; i <= jogQua.obterTamanho()-1; i++){
@@ -244,9 +280,20 @@ public class Construtor<T> {
 					System.out.println("Jogador Quatro......................................OK");	
 					System.out.println(jmesa.obter());
 					System.out.println(jogQua.obterPosicao(i));
+					var = i;
+					retorno = true;
 				}else{
 					System.out.println("Nenhuma carta jogador Quatro: "+jogQua.obterPosicao(i));
 				}
+			}
+			if(retorno == true){
+				System.out.println("Tem a carta e lansa uma");
+				jmesa.insercao((T)jogQua.obterPosicao(var));
+				jogQua.removerPosicao(var);
+			}else{
+				System.out.println("Não tem a carta e pega mais uma, total: "+jogQua.obterTamanho());
+				jogQua.addFin(baralho.obter());
+				baralho.remocao();
 			}
 		}
 	}
