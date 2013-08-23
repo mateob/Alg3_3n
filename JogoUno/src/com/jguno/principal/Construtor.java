@@ -93,32 +93,32 @@ public class Construtor<T> {
 		int testes = 0;
 		
 		if(jogUm.obterTamanho() != 5){
-			System.out.println("Erro: Jogador Um não tem cartas!");
+			System.err.println("Erro: Jogador Um não tem cartas!");
 		}else{
 			testes = 1;
 		}
 		if(jogDois.obterTamanho() != 5){
-			System.out.println("Erro: Jogador Dois não tem cartas!");
+			System.err.println("Erro: Jogador Dois não tem cartas!");
 		}else{
 			testes = testes + 1;
 		}
 		if(jogTres.obterTamanho() != 5){
-			System.out.println("Erro: Jogador Três não tem cartas!");
+			System.err.println("Erro: Jogador Três não tem cartas!");
 		}else{
 			testes = testes +1;
 		}
 		if(jogQua.obterTamanho() != 5){
-			System.out.println("Erro: Jogador Quatro não tem cartas!");
+			System.err.println("Erro: Jogador Quatro não tem cartas!");
 		}else{
 			testes = testes +1;
 		}
 		if(baralho.tamanho() != 51){
-			System.out.println("Erro: O Baralho não tem cartas!");
+			System.err.println("Erro: O Baralho não tem cartas!");
 		}else{
 			testes = testes +1;
 		}
 		if(jmesa.tamanho() != 1){
-			System.out.println("Erro: A mesa não resebeu a primeira cartas!");
+			System.err.println("Erro: A mesa não resebeu a primeira cartas!");
 		}else{
 			testes = testes + 1;
 		}
@@ -325,5 +325,29 @@ public class Construtor<T> {
 			}
 				
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void separaString(int var){
+		String[] resCard = new String[2];
+		String[] resMesa = new String[2];
+		T cartaM = (T) jmesa.obter();
+		T cartaJ = (T) jogUm.obterPosicao(var);
+		resCard = ((String) cartaJ).split("%");
+		resMesa = ((String) cartaM).split("%");
+		cartaJogador(resCard, resMesa);
+		
+	}
+	
+	public void cartaJogador(String[] resCard, String[] resMesa){
+		String cartaJ = resCard[0];
+		String corJ = resCard[1];
+		String cartaM = resMesa[0];
+		String corM = resMesa[1];
+		System.out.println("Carta: Numero["+cartaJ+"] - Cor["+corJ+"]");
+	}
+	
+	public void cartaMesa(){
+		
 	}
 }

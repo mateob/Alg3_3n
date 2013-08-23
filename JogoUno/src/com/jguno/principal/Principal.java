@@ -11,7 +11,7 @@ public class Principal {
 		if(tst.testeMesa()==true){
 			tst.iniciarJogo();
 		}else{
-			System.out.println("Erro!!");
+			System.err.println("Erro: não foi possivel carregar o sistema!");
 		}
 	}
 }
