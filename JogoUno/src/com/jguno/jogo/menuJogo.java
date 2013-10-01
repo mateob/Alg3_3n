@@ -27,6 +27,7 @@ public class menuJogo{
 		System.out.println(separador);
 		try{
 			while(textoEntra != 100){
+				System.out.print("| ");
 				textoEntra = Integer.parseInt(br.readLine());
 				if(textoEntra == 1){
 					resultado = 1;

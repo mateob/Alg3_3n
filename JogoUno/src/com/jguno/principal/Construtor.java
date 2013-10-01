@@ -336,7 +336,6 @@ public class Construtor<T> {
 		resCard = ((String) cartaJ).split("%");
 		resMesa = ((String) cartaM).split("%");
 		cartaJogador(resCard, resMesa);
-		
 	}
 	
 	public void cartaJogador(String[] resCard, String[] resMesa){
